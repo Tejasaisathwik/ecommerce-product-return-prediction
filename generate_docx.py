@@ -31,6 +31,27 @@ def set_cell_margins(cell, top=120, bottom=120, left=160, right=160):
     tc_pr.append(tc_mar)
 
 
+def add_code_box(doc, text):
+    """Render a shaded code/output block."""
+    table = doc.add_table(rows=1, cols=1)
+    table.alignment = WD_TABLE_ALIGNMENT.CENTER
+    table.autofit = False
+    cell = table.rows[0].cells[0]
+    cell.width = Inches(6.5)
+    set_cell_background(cell, "F4F6F8")
+    set_cell_margins(cell, 80, 80, 120, 120)
+    p = cell.paragraphs[0]
+    p.paragraph_format.space_before = Pt(2)
+    p.paragraph_format.space_after = Pt(2)
+    p.paragraph_format.line_spacing = 1.05
+    run = p.add_run(text)
+    run.font.name = 'Consolas'
+    run.font.size = Pt(9)
+    run.font.color.rgb = RGBColor(0x24, 0x29, 0x2E)
+    doc.add_paragraph().paragraph_format.space_after = Pt(6)
+
+
+
 def create_report():
     doc = Document()
 
@@ -438,7 +459,8 @@ def create_report():
         p_cap.paragraph_format.space_after = Pt(12)
 
     doc.add_heading("Live Health Check Verification Output:", level=2)
-    doc.add_paragraph(
+    add_code_box(
+        doc,
         '{\n'
         '  "status": "healthy",\n'
         '  "model_loaded": true,\n'
@@ -451,7 +473,8 @@ def create_report():
     )
 
     doc.add_heading("Live Single Order Prediction Output:", level=2)
-    doc.add_paragraph(
+    add_code_box(
+        doc,
         '{\n'
         '  "prediction": "Returned",\n'
         '  "is_returned": true,\n'
