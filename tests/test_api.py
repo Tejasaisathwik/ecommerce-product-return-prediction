@@ -26,6 +26,8 @@ def test_health_endpoint():
     data = response.json()
     assert data["status"] == "healthy"
     assert data["model_loaded"] is True
+    assert data["app_version"] == "1.2.0"
+    assert data["ci_cd_pipeline"] == "Automated via GitHub Actions & GHCR"
     assert "model_name" in data
 
 

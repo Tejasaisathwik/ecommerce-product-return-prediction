@@ -87,7 +87,7 @@ app = FastAPI(
         "a purchased product is likely to be returned based on customer behavior, "
         "order logistics, product category, and package characteristics."
     ),
-    version="1.1.0",
+    version="1.2.0",
     lifespan=lifespan,
 )
 
@@ -106,10 +106,11 @@ def root():
     """Root entry point with service metadata and documentation links."""
     return {
         "service": "E-Commerce Product Return Prediction API",
-        "version": "1.1.0",
+        "version": "1.2.0",
         "status": "online",
         "model_loaded": model_store["pipeline"] is not None,
         "model_name": model_store["model_name"],
+        "ci_cd_pipeline": "Automated via GitHub Actions & GHCR",
         "endpoints": {
             "health": "/health",
             "predict": "/predict",
@@ -134,7 +135,9 @@ def health():
         status="healthy" if pipeline_loaded else "degraded",
         model_loaded=pipeline_loaded,
         model_name=model_store["model_name"],
-        app_version="1.1.0",
+        app_version="1.2.0",
+        ci_cd_pipeline="Automated via GitHub Actions & GHCR",
+        environment="production",
     )
 
 

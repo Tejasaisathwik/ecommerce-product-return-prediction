@@ -156,5 +156,10 @@ class HealthResponse(BaseModel):
     status: str = Field(..., examples=["healthy"])
     model_loaded: bool = Field(..., examples=[True])
     model_name: str = Field(..., examples=["LogisticRegression"])
-    app_version: str = Field(..., examples=["1.0.0"])
+    app_version: str = Field(..., examples=["1.2.0"])
+    ci_cd_pipeline: str = Field(
+        default="Automated via GitHub Actions & GHCR",
+        examples=["Automated via GitHub Actions & GHCR"],
+    )
+    environment: str = Field(default="production", examples=["production"])
     timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
