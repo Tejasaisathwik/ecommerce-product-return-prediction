@@ -171,13 +171,13 @@ python -m pytest -v
 
 ### 4. Launch FastAPI Application
 ```bash
-uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload
 ```
 Navigate to:
-- **Swagger UI Documentation:** `http://localhost:8000/docs`
-- **ReDoc Documentation:** `http://localhost:8000/redoc`
-- **Health Check:** `http://localhost:8000/health`
-- **Model Metrics:** `http://localhost:8000/metrics`
+- **Swagger UI Documentation:** `http://localhost:8001/docs`
+- **ReDoc Documentation:** `http://localhost:8001/redoc`
+- **Health Check:** `http://localhost:8001/health`
+- **Model Metrics:** `http://localhost:8001/metrics`
 
 ---
 
@@ -189,10 +189,10 @@ Navigate to:
 docker build -t ecommerce-return-api:v1 .
 
 # Run the container
-docker run -d -p 8000:8000 --name return_service ecommerce-return-api:v1
+docker run -d -p 8001:8000 --name return_service ecommerce-return-api:v1
 
 # Test container health
-curl http://localhost:8000/health
+curl http://localhost:8001/health
 ```
 
 ### Or using Docker Compose
@@ -226,7 +226,7 @@ The automated workflow located at `.github/workflows/ci-cd.yml` automates the re
 ### 1. Health Check Endpoint
 ```http
 GET /health HTTP/1.1
-Host: localhost:8000
+Host: localhost:8001
 ```
 **Response (200 OK):**
 ```json
@@ -234,15 +234,17 @@ Host: localhost:8000
   "status": "healthy",
   "model_loaded": true,
   "model_name": "LogisticRegression",
-  "app_version": "1.0.0",
-  "timestamp": "2026-11-06T08:54:20.694372+00:00"
+  "app_version": "1.2.0",
+  "ci_cd_pipeline": "Automated via GitHub Actions & GHCR",
+  "environment": "production",
+  "timestamp": "2026-11-06T09:30:53.475307+00:00"
 }
 ```
 
 ### 2. Single Order Prediction Endpoint
 ```http
 POST /predict HTTP/1.1
-Host: localhost:8000
+Host: localhost:8001
 Content-Type: application/json
 
 {

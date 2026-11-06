@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: ecommerce_return_prediction_service
     ports:
-      - "8000:8000"
+      - "8001:8000"
     environment:
       - MODEL_PATH=/app/models/best_model.joblib
       - METRICS_PATH=/app/models/metrics.json

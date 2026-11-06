@@ -155,22 +155,22 @@ python -m pytest -v
 
 ### Step 2: Start FastAPI Locally
 ```bash
-uvicorn app.main:app --host 0.0.0.0 --port 8000
+uvicorn app.main:app --host 0.0.0.0 --port 8001
 ```
-Open `http://localhost:8000/docs` in a browser.
+Open `http://localhost:8001/docs` in a browser.
 
 ### Step 3: Test Health Endpoint
 ```bash
-curl http://localhost:8000/health
+curl http://localhost:8001/health
 ```
 **Output:**
 ```json
-{"status":"healthy","model_loaded":true,"model_name":"LogisticRegression","app_version":"1.0.0"}
+{"status":"healthy","model_loaded":true,"model_name":"LogisticRegression","app_version":"1.2.0","ci_cd_pipeline":"Automated via GitHub Actions & GHCR","environment":"production"}
 ```
 
 ### Step 4: Test Sample Prediction
 ```bash
-curl -X POST "http://localhost:8000/predict" \
+curl -X POST "http://localhost:8001/predict" \
      -H "Content-Type: application/json" \
      -d '{
        "Product_Category": "Fashion",
