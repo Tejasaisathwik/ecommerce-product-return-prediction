@@ -117,6 +117,11 @@ class PredictionResponse(BaseModel):
         description="Predicted probability score for return (0.0 to 1.0)",
         examples=[0.7245],
     )
+    risk_level: str = Field(
+        default="Low Risk",
+        description="Categorical risk tier: High Risk (>=0.65), Moderate Risk (0.40-0.65), Low Risk (<0.40)",
+        examples=["High Risk"],
+    )
     model_name: str = Field(
         ...,
         description="Name of the model utilized for serving inference",

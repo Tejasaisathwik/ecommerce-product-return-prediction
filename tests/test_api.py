@@ -51,6 +51,7 @@ def test_predict_endpoint_valid():
     assert data["prediction"] in ["Returned", "Not Returned"]
     assert isinstance(data["is_returned"], bool)
     assert 0.0 <= data["return_probability"] <= 1.0
+    assert data["risk_level"] in ["Low Risk", "Moderate Risk", "High Risk"]
     assert "engineered_features" in data
     assert data["engineered_features"]["delivery_delay_days"] == 3.0
     assert data["engineered_features"]["is_delayed"] is True

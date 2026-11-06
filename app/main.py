@@ -87,7 +87,7 @@ app = FastAPI(
         "a purchased product is likely to be returned based on customer behavior, "
         "order logistics, product category, and package characteristics."
     ),
-    version="1.0.0",
+    version="1.1.0",
     lifespan=lifespan,
 )
 
@@ -106,7 +106,7 @@ def root():
     """Root entry point with service metadata and documentation links."""
     return {
         "service": "E-Commerce Product Return Prediction API",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "status": "online",
         "model_loaded": model_store["pipeline"] is not None,
         "model_name": model_store["model_name"],
@@ -134,7 +134,7 @@ def health():
         status="healthy" if pipeline_loaded else "degraded",
         model_loaded=pipeline_loaded,
         model_name=model_store["model_name"],
-        app_version="1.0.0",
+        app_version="1.1.0",
     )
 
 
@@ -170,6 +170,14 @@ def predict(order: OrderReturnInput):
         label = "Returned" if raw_pred == 1 else "Not Returned"
         is_returned = bool(raw_pred == 1)
 
+        # Categorize risk level based on return probability
+        if prob_return >= 0.65:
+            risk_tier = "High Risk"
+        elif prob_return >= 0.40:
+            risk_tier = "Moderate Risk"
+        else:
+            risk_tier = "Low Risk"
+
         # Extract engineered features for transparent explanation
         delay = float(order.Actual_Delivery_Days - order.Expected_Delivery_Days)
         freq = float(order.Previous_Returns / max(order.Previous_Orders, 1))
@@ -179,6 +187,7 @@ def predict(order: OrderReturnInput):
             prediction=label,
             is_returned=is_returned,
             return_probability=round(prob_return, 4),
+            risk_level=risk_tier,
             model_name=model_store["model_name"],
             engineered_features={
                 "delivery_delay_days": delay,
@@ -230,6 +239,13 @@ def batch_predict(batch: BatchPredictionRequest):
             label = "Returned" if is_ret else "Not Returned"
             prob = float(probabilities[i])
 
+            if prob >= 0.65:
+                risk_tier = "High Risk"
+            elif prob >= 0.40:
+                risk_tier = "Moderate Risk"
+            else:
+                risk_tier = "Low Risk"
+
             delay = float(order.Actual_Delivery_Days - order.Expected_Delivery_Days)
             freq = float(order.Previous_Returns / max(order.Previous_Orders, 1))
             disc_amt = float(order.Product_Price_INR * (order.Discount_Percent / 100.0))
@@ -239,6 +255,7 @@ def batch_predict(batch: BatchPredictionRequest):
                     prediction=label,
                     is_returned=is_ret,
                     return_probability=round(prob, 4),
+                    risk_level=risk_tier,
                     model_name=model_store["model_name"],
                     engineered_features={
                         "delivery_delay_days": delay,

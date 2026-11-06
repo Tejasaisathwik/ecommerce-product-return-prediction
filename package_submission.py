@@ -1,6 +1,5 @@
 """Script to package project into RegisterNumber_MLOps_Internal.zip."""
 
-import os
 import sys
 import zipfile
 from pathlib import Path
@@ -40,7 +39,7 @@ def create_submission_zip(reg_number: str = "RegisterNumber"):
                 print(f"  + Added: {rel_path}")
 
     size_kb = zip_filepath.stat().st_size / 1024
-    print(f"\n[+] Successfully created submission archive:")
+    print("\n[+] Successfully created submission archive:")
     print(f"    Path: {zip_filepath}")
     print(f"    Size: {size_kb:.2f} KB")
     return zip_filepath
