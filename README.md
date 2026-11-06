@@ -281,6 +281,7 @@ Content-Type: application/json
 ---
 
 ## 👥 Author
-- **Developer:** Tejasaisathwik
+- **Developer:** Teja Sai Sathwik
+- **Register Number:** 231FA04211
 - **Examination:** MLOps Internal Laboratory Examination — Question 4
 - **Date:** November 2026

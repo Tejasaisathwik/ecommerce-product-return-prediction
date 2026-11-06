@@ -3,10 +3,13 @@
 **Subject:** Machine Learning Operations (MLOps) Laboratory  
 **Question Number:** Question 4  
 **Question Title:** Develop and Automate an E-Commerce Product Return Prediction System using CI/CD  
-**Student Name:** Tejasaisathwik  
+**Student Name:** Teja Sai Sathwik  
+**Register Number:** 231FA04211  
 **Date of Submission:** November 2026  
 **Repository Link:** `https://github.com/Tejasaisathwik/ecommerce-product-return-prediction`  
-**Application Deployment Link:** `http://localhost:8000/docs` (Swagger UI) / Docker GHCR Container Image
+**Application Deployment Link:** `http://localhost:8001/docs` (Swagger UI) / Docker GHCR Container Image  
+**Docker Hub Image:** `teja211/ecommerce-product-return-prediction:latest`  
+**GHCR Image:** `ghcr.io/tejasaisathwik/ecommerce-product-return-prediction:latest`
 
 ---
 
