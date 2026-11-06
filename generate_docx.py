@@ -67,7 +67,7 @@ def create_report():
     run_q.font.color.rgb = RGBColor(0x44, 0x44, 0x44)
 
     # Student Details Box Table
-    details_table = doc.add_table(rows=6, cols=2)
+    details_table = doc.add_table(rows=7, cols=2)
     details_table.alignment = WD_TABLE_ALIGNMENT.CENTER
     details_table.autofit = False
 
@@ -75,7 +75,8 @@ def create_report():
         ("Student Name:", "Teja Sai Sathwik"),
         ("Register Number:", "231FA04211"),
         ("GitHub Repository Link:", "https://github.com/Tejasaisathwik/ecommerce-product-return-prediction"),
-        ("FastAPI Swagger UI Link:", "http://localhost:8001/docs"),
+        ("Public Live Swagger UI (Deployment):", "https://proven-tests-announcement-maryland.trycloudflare.com/docs"),
+        ("Localhost Swagger UI Link:", "http://localhost:8001/docs"),
         ("Docker Hub Container Image:", "teja211/ecommerce-product-return-prediction:latest"),
         ("GitHub Container Registry (GHCR):", "ghcr.io/tejasaisathwik/ecommerce-product-return-prediction:latest"),
     ]
@@ -284,12 +285,12 @@ def create_report():
         "• POST /predict: Accepts JSON payload with order attributes, automatically computes domain features, executes the trained pipeline, and returns prediction label, return probability, and risk tier.\n"
         "• POST /batch-predict: Bulk inference endpoint for high-volume transactions.\n"
         "• GET /metrics: Returns offline model evaluation metrics and confusion matrix metadata.\n"
-        "• Swagger UI (/docs): Interactive OpenAPI documentation interface running locally at http://localhost:8001/docs."
+        "• Swagger UI (/docs): Interactive OpenAPI documentation interface. Accessible publicly worldwide at https://proven-tests-announcement-maryland.trycloudflare.com/docs and locally at http://localhost:8001/docs."
     )
 
     # Insert Swagger UI screenshots
     for img_name, caption in [
-        ("outputs/WhatsApp Image 2026-11-06 at 3.25.29 PM.jpeg", "Figure 4: FastAPI Interactive Swagger UI Documentation (http://localhost:8001/docs)"),
+        ("outputs/WhatsApp Image 2026-11-06 at 3.25.29 PM.jpeg", "Figure 4: FastAPI Interactive Swagger UI Documentation (Public: https://proven-tests-announcement-maryland.trycloudflare.com/docs / Local: http://localhost:8001/docs)"),
         ("outputs/WhatsApp Image 2026-11-06 at 3.25.39 PM.jpeg", "Figure 5: Pydantic v2 Request & Response Schema Definitions in Swagger UI"),
         ("outputs/WhatsApp Image 2026-11-06 at 3.25.53 PM.jpeg", "Figure 6: Live API Root Endpoint JSON Response (http://localhost:8001/)"),
     ]:
@@ -477,7 +478,7 @@ def create_report():
         "• Successfully preprocessed e-commerce dataset, addressing invalid negative prices and extreme discounts.\n"
         "• Developed domain feature engineering modules capturing shipment tardiness and customer return habits.\n"
         "• Trained and benchmarked 3 classification models; balanced Logistic Regression selected for superior return recall.\n"
-        "• Created and verified production FastAPI service with interactive Swagger UI documentation at http://localhost:8001/docs.\n"
+        "• Created and verified production FastAPI service with public interactive Swagger UI documentation at https://proven-tests-announcement-maryland.trycloudflare.com/docs (and locally at http://localhost:8001/docs).\n"
         "• Implemented end-to-end GitHub Actions CI/CD pipeline building and publishing Docker images to GHCR and Docker Hub.\n"
         "• Verified automatic triggering upon pushing code modifications and demonstrated live execution of the updated container.\n"
         "• Packaged entire project into 231FA04211_MLOps_Internal.zip ready for Google Classroom submission."

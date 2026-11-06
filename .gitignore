@@ -45,3 +45,6 @@ Thumbs.db
 
 # Submission ZIP files (don't commit into git itself)
 *.zip
+cloudflared.exe
+tunnel*.log
+

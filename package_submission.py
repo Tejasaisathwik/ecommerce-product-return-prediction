@@ -23,6 +23,7 @@ def create_submission_zip(reg_number: str = "RegisterNumber"):
         ".vscode",
     }
     exclude_extensions = {".pyc", ".pyo", ".pyd", ".zip"}
+    exclude_filenames = {"cloudflared.exe", "tunnel.log", "tunnel_out.log"}
 
     with zipfile.ZipFile(zip_filepath, "w", zipfile.ZIP_DEFLATED) as zipf:
         for file_path in root_dir.rglob("*"):
@@ -32,6 +33,8 @@ def create_submission_zip(reg_number: str = "RegisterNumber"):
                 if any(part in exclude_dirs for part in parts):
                     continue
                 if file_path.suffix in exclude_extensions:
+                    continue
+                if file_path.name in exclude_filenames:
                     continue
 
                 rel_path = file_path.relative_to(root_dir)

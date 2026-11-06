@@ -6,7 +6,9 @@ exclude =
     .pytest_cache,
     data,
     models,
-    notebooks
+    notebooks,
+    generate_docx.py,
+    package_submission.py
 per-file-ignores =
     src/train.py: E402
     app/main.py: E402

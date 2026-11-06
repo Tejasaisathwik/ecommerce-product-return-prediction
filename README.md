@@ -9,6 +9,21 @@
 
 ---
 
+## 🌐 Live Public Deployment & Access Links
+- 🚀 **Live Interactive Swagger UI (Public Worldwide Access):** [https://proven-tests-announcement-maryland.trycloudflare.com/docs](https://proven-tests-announcement-maryland.trycloudflare.com/docs)
+- 📖 **Live ReDoc Documentation (Public):** [https://proven-tests-announcement-maryland.trycloudflare.com/redoc](https://proven-tests-announcement-maryland.trycloudflare.com/redoc)
+- ❤️ **Public Health Endpoint:** [https://proven-tests-announcement-maryland.trycloudflare.com/health](https://proven-tests-announcement-maryland.trycloudflare.com/health)
+- 📊 **Model Metrics Endpoint:** [https://proven-tests-announcement-maryland.trycloudflare.com/metrics](https://proven-tests-announcement-maryland.trycloudflare.com/metrics)
+- 📦 **Docker Hub Image:** [`teja211/ecommerce-product-return-prediction:latest`](https://hub.docker.com/r/teja211/ecommerce-product-return-prediction)
+- 🐙 **GitHub Container Registry (GHCR):** [`ghcr.io/tejasaisathwik/ecommerce-product-return-prediction:latest`](https://github.com/Tejasaisathwik/ecommerce-product-return-prediction/pkgs/container/ecommerce-product-return-prediction)
+- 📂 **GitHub Repository:** [https://github.com/Tejasaisathwik/ecommerce-product-return-prediction](https://github.com/Tejasaisathwik/ecommerce-product-return-prediction)
+- 💻 **Localhost Deployment URL:** `http://localhost:8001/docs`
+
+> **Note for Faculty / Reviewers:** The application is deployed with a live, publicly accessible Cloudflare HTTPS endpoint that can be inspected and tested from any external system or browser without restriction.
+
+
+---
+
 ## 📌 Problem Overview
 In modern e-commerce, reverse logistics and customer returns represent substantial operational costs and inventory degradation. This project builds a production-grade **Machine Learning prediction service** coupled with an **automated Continuous Integration and Continuous Deployment (CI/CD) pipeline**.
 
@@ -174,10 +189,11 @@ python -m pytest -v
 uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload
 ```
 Navigate to:
-- **Swagger UI Documentation:** `http://localhost:8001/docs`
-- **ReDoc Documentation:** `http://localhost:8001/redoc`
-- **Health Check:** `http://localhost:8001/health`
-- **Model Metrics:** `http://localhost:8001/metrics`
+- **Public Swagger UI Documentation:** `https://proven-tests-announcement-maryland.trycloudflare.com/docs`
+- **Swagger UI Documentation (Local):** `http://localhost:8001/docs`
+- **ReDoc Documentation:** `http://localhost:8001/redoc` (or `https://proven-tests-announcement-maryland.trycloudflare.com/redoc`)
+- **Health Check:** `http://localhost:8001/health` (or `https://proven-tests-announcement-maryland.trycloudflare.com/health`)
+- **Model Metrics:** `http://localhost:8001/metrics` (or `https://proven-tests-announcement-maryland.trycloudflare.com/metrics`)
 
 ---
 

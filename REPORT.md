@@ -7,7 +7,8 @@
 **Register Number:** 231FA04211  
 **Date of Submission:** November 2026  
 **Repository Link:** `https://github.com/Tejasaisathwik/ecommerce-product-return-prediction`  
-**Application Deployment Link:** `http://localhost:8001/docs` (Swagger UI) / Docker GHCR Container Image  
+**Live Public Deployment Link (Worldwide Access):** `https://proven-tests-announcement-maryland.trycloudflare.com/docs` (Interactive Swagger UI)  
+**Localhost Swagger UI Link:** `http://localhost:8001/docs`  
 **Docker Hub Image:** `teja211/ecommerce-product-return-prediction:latest`  
 **GHCR Image:** `ghcr.io/tejasaisathwik/ecommerce-product-return-prediction:latest`
 
@@ -217,4 +218,5 @@ docker compose up --build -d
 - Trained and evaluated 3 classification models with balanced class weights.
 - Deployed REST API via FastAPI with Pydantic schema validation.
 - Configured automated GitHub Actions CI/CD pipeline building Docker images and publishing to GHCR.
+- Made application publicly accessible via live HTTPS endpoint: `https://proven-tests-announcement-maryland.trycloudflare.com/docs`.
 - Fully verified with 100% test pass rate and production container readiness.
