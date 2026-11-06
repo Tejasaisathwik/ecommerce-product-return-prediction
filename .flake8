@@ -1,0 +1,12 @@
+[flake8]
+max-line-length = 120
+exclude =
+    .git,
+    __pycache__,
+    .pytest_cache,
+    data,
+    models,
+    notebooks
+per-file-ignores =
+    src/train.py: E402
+    app/main.py: E402
